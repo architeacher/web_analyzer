@@ -1,0 +1,19 @@
+unhealthy_service:
+  summary: Unhealthy service
+  value:
+    status: "unhealthy"
+    timestamp: "2024-01-15T10:30:00Z"
+    version: "1.0.0"
+    dependencies:
+      storage: "unhealthy"
+      external_services: "healthy"
+
+partial_outage:
+  summary: Partial service outage
+  value:
+    status: "unhealthy"
+    timestamp: "2024-01-15T10:30:00Z"
+    version: "1.0.0"
+    dependencies:
+      storage: "healthy"
+      external_services: "healthy"

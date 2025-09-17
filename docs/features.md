@@ -24,7 +24,7 @@ This document provides comprehensive documentation of all features implemented i
 ## API Features
 
 ### Authentication & Security
-- **PASETO Token Authentication**: Enhanced security tokens with issuer validation.
+- **[PASETO](https://paseto.io/) Token Authentication**: Enhanced security tokens with issuer validation.
   - Platform Agnostic Security Token Exchange and Operations.
   - Extended validation with expiration checks.
   - Issuer verification for enhanced security.
@@ -72,6 +72,10 @@ This document provides comprehensive documentation of all features implemented i
 - **Code Generation**: OpenAPI-to-Go code generation with oapi-codegen.
 - **API Documentation**: Auto-generated documentation from OpenAPI specification.
 - **Multi-stage Docker Builds**: Optimized container images.
+
+### Storage & Caching
+- **Cache-based Storage**: Temporary result storage using Redis/KeyDB
+- **TTL-based Cleanup**: Automatic cleanup of expired analysis results
 
 ## User Experience Features
 

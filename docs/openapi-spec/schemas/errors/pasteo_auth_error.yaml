@@ -1,0 +1,38 @@
+description: PASTEO token authentication error
+content:
+  application/json:
+    schema:
+      $ref: '../common/common.yaml#/ErrorResponse'
+    examples:
+      invalid_pasteo_token:
+        summary: Invalid PASTEO token format
+        value:
+          error: "invalid_pasteo_token"
+          message: "PASTEO token format is invalid"
+          details: "Token must follow format: pasteo.{issuer}.{payload}.{signature}"
+          status_code: 401
+          timestamp: "2024-01-15T10:30:00Z"
+      pasteo_issuer_validation_failed:
+        summary: PASTEO token issuer validation failed
+        value:
+          error: "pasteo_issuer_validation_failed"
+          message: "PASTEO token issuer validation failed"
+          details: "The token issuer could not be validated or is not trusted"
+          status_code: 401
+          timestamp: "2024-01-15T10:30:00Z"
+      pasteo_token_expired:
+        summary: PASTEO token expired
+        value:
+          error: "pasteo_token_expired"
+          message: "PASTEO token has expired"
+          details: "The token expired at 2024-01-15T09:30:00Z. Please obtain a new token"
+          status_code: 401
+          timestamp: "2024-01-15T10:30:00Z"
+      pasteo_signature_invalid:
+        summary: PASTEO token signature invalid
+        value:
+          error: "pasteo_signature_invalid"
+          message: "PASTEO token signature is invalid"
+          details: "The token signature could not be verified"
+          status_code: 401
+          timestamp: "2024-01-15T10:30:00Z"

@@ -1,0 +1,48 @@
+# PASTEO Token Authentication Examples
+
+valid_pasteo_token:
+  summary: Valid PASTEO token in request header
+  description: |
+    Example of a valid PASTEO token that should be included in the X-PASTEO-Token header.
+    Format: pasteo.{issuer}.{payload}.{signature}
+  value:
+    headers:
+      X-PASTEO-Token: "pasteo.webanalyzer.eyJ1c2VyX2lkIjoiMTIzNDU2NzgtYWJjZC0xMjM0LWVmZ2gtMTIzNDU2Nzg5MDEyIiwiZXhwIjoxNzA1MzI3MjAwLCJpc3MiOiJ3ZWJhbmFseXplciIsImF1ZCI6IndlYmFuYWx5emVyLWFwaSJ9.rH8j5F9K2pL6nM3qR7tY8vU5wX1zB4cD2eF7gH9jK0lM8nP5qR3sT6uV9wX2zY5"
+      Content-Type: "application/json"
+
+api_key_example:
+  summary: API key authentication for service-to-service calls
+  description: |
+    Example of API key authentication for automated services or integrations.
+  value:
+    headers:
+      X-API-Key: "wa_sk_1234567890abcdef1234567890abcdef"
+      Content-Type: "application/json"
+
+jwt_bearer_example:
+  summary: Standard JWT Bearer token authentication
+  description: |
+    Example of standard JWT Bearer token authentication for web applications.
+  value:
+    headers:
+      Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+      Content-Type: "application/json"
+
+security_headers_example:
+  summary: Response with security headers
+  description: |
+    Example response showing the security headers that are included with all API responses.
+  value:
+    headers:
+      X-Content-Type-Options: "nosniff"
+      X-Frame-Options: "DENY"
+      X-XSS-Protection: "1; mode=block"
+      Strict-Transport-Security: "max-age=31536000; includeSubDomains"
+      Content-Security-Policy: "default-src 'self'"
+      Referrer-Policy: "strict-origin-when-cross-origin"
+      Permissions-Policy: "camera=(), microphone=(), geolocation=()"
+      Content-Type: "application/json"
+    body:
+      analysis_id: "550e8400-e29b-41d4-a716-446655440000"
+      status: "requested"
+      url: "https://example.com"
