@@ -1,0 +1,52 @@
+healthy_service:
+  summary: Service is healthy
+  value:
+    status: "OK"
+    timestamp: "2025-01-15T10:30:00Z"
+    version: "1.0.0"
+    uptime: 3600.5
+    checks:
+      storage:
+        status: "healthy"
+        response_time: 15.2
+        last_checked: "2025-01-15T10:30:00Z"
+      cache:
+        status: "healthy"
+        response_time: 2.8
+        last_checked: "2025-01-15T10:30:00Z"
+        details:
+          total_keys: 1247
+      queue:
+        status: "healthy"
+        response_time: 5.4
+        last_checked: "2025-01-15T10:30:00Z"
+        details:
+          pending_jobs: 12
+          active_workers: 3
+
+unhealthy_service:
+  summary: Service is unhealthy
+  value:
+    status: "DOWN"
+    timestamp: "2025-01-15T10:30:00Z"
+    version: "1.0.0"
+    uptime: 1800.2
+    checks:
+      storage:
+        status: "unhealthy"
+        response_time: 5000.0
+        last_checked: "2025-01-15T10:30:00Z"
+        error: "Connection timeout after 5000ms"
+      cache:
+        status: "healthy"
+        response_time: 3.1
+        last_checked: "2025-01-15T10:30:00Z"
+        details:
+          total_keys: 892
+      queue:
+        status: "healthy"
+        response_time: 4.2
+        last_checked: "2025-01-15T10:30:00Z"
+        details:
+          pending_jobs: 45
+          active_workers: 3

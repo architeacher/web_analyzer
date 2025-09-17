@@ -1,0 +1,27 @@
+ready_service:
+  summary: Service is ready
+  value:
+    status: "OK"
+    timestamp: "2025-01-15T10:30:00Z"
+    version: "1.0.0"
+    checks:
+      storage:
+        status: "healthy"
+      cache:
+        status: "healthy"
+      queue:
+        status: "healthy"
+
+not_ready_service:
+  summary: Service is not ready
+  value:
+    status: "DOWN"
+    timestamp: "2025-01-15T10:30:00Z"
+    version: "1.0.0"
+    checks:
+      storage:
+        status: "unhealthy"
+      cache:
+        status: "healthy"
+      queue:
+        status: "healthy"
