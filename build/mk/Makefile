@@ -25,12 +25,13 @@ include build/mk/*.mk
 .PHONY: default
 default: help ## to run default target.
 
-ENV_FILE := ".envrc"
+ENV_FILE := .envrc
+DOT_ENV := .env
 CERTS_DIR := ".certs"
 
-.PHONY: .envrc
-$(ENV_FILE):
-	cp .envrc.dist .envrc
+.PHONY: $(ENV_FILE) $(DOT_ENV)
+$(ENV_FILE) $(DOT_ENV):
+	cat .envrc.dist | tee "$(ENV_FILE)" "$(DOT_ENV)" > /dev/null
 
 $(CERTS_DIR):
 	mkdir -p "${CERTS_DIR}"
@@ -40,7 +41,7 @@ set-hosts: ## Update local hosts.
 	$(call printMessage,"🤖  Updating local hosts",$(INFO_CLR))
 	echo "\n# Web Analyzer Hosts\n\
 ====================\n\
-127.0.0.1 traefik.web-analyzer.dev api.web-analyzer.dev docs.web-analyzer.dev" | sudo tee -a /etc/hosts
+127.0.0.1 web-analyzer.dev api.web-analyzer.dev docs.web-analyzer.dev traefik.web-analyzer.dev vault.web-analyzer.dev rabbitmq.web-analyzer.dev" | sudo tee -a /etc/hosts
 
 .PHONY: init
 init: $(ENV_FILE) set-hosts certify

@@ -214,6 +214,60 @@ Use HashiCorp Vault as the centralized secret management system for secure stora
 - **Negative**: Additional infrastructure complexity, dependency on Vault availability, learning curve.
 - **Implementation**: Vault cluster with PostgreSQL backend, integrated with application services for dynamic secret retrieval.
 
+## ADR-009: Clean Architecture with Hexagonal Pattern
+
+**Context**: Need maintainable, testable architecture that separates business logic from external concerns.
+
+### Decision
+Implement Clean Architecture principles with Hexagonal (Ports and Adapters) pattern.
+
+### Rationale
+- **Separation of Concerns**: Business logic isolated from external dependencies
+- **Testability**: Easy unit testing without external dependencies
+- **Flexibility**: Can swap implementations without affecting core logic
+- **Maintainability**: Clear boundaries between layers
+
+### Consequences
+- **Positive**: Improved testability, maintainability, and flexibility
+- **Negative**: Additional complexity and learning curve
+- **Implementation**: Domain, ports, adapters, and infrastructure layers
+
+## ADR-010: CQS Architecture
+
+**Context**: Need to handle complex analysis workflows with clear separation of read and write operations.
+
+### Decision
+Implement Command Query Separation (CQS) pattern for organizing application operations.
+
+### Rationale
+- **Separation of Concerns**: Clear distinction between commands that change state and queries that return data
+- **Complexity Management**: Separate command and query handlers
+- **Maintainability**: Easier to understand and modify individual operations
+- **Scalability**: Commands and queries can be optimized independently
+
+### Consequences
+- **Positive**: Better maintainability, clearer code organization, and independent optimization
+- **Negative**: Additional abstraction and potential code duplication
+- **Implementation**: Command/query handlers with dedicated use case handlers
+
+## ADR-011: Decorator Pattern for Cross-Cutting Concerns
+
+**Context**: Need to handle logging, metrics, and tracing without cluttering business logic.
+
+### Decision
+Use decorator pattern for implementing cross-cutting concerns.
+
+### Rationale
+- **Single Responsibility**: Each decorator handles one concern
+- **Composability**: Decorators can be combined in any order
+- **Testability**: Easy to test individual decorators
+- **Performance**: Minimal overhead when not needed
+
+### Consequences
+- **Positive**: Clean separation, composability, testability
+- **Negative**: Additional abstraction layers
+- **Implementation**: Logging, metrics, and tracing decorators
+
 ## Future Considerations
 
 ### Potential Future ADRs
